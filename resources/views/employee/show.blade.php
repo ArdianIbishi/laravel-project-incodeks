@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h2>store page</h2>
+    <h2>show page</h2>
 
 @endsection

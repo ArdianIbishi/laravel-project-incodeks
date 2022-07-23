@@ -40,7 +40,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('employee.index')}}">
                 <i class="fab fa-servicestack"></i>
                 <span class="links_name"> Employees list</span>
             </a>

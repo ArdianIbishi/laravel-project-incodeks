@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,9 @@ Route::get('dashboard',[AdminController::class,'dashboard'])->name('admin.dashbo
 Route::get('store/{id}/delete',[StoreController::class,'destroy']);
 
 Route::resource('store',StoreController::class);
+
+// employee
+
+Route::get('employee/{id}/delete',[EmployeController::class,'destroy']);
+
+Route::resource('employee',EmployeController::class);
