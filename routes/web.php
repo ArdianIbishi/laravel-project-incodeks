@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,8 @@ Route::resource('store',StoreController::class);
 Route::get('employee/{id}/delete',[EmployeController::class,'destroy']);
 
 Route::resource('employee',EmployeController::class);
+
+//user profile edit
+Route::get('user_profile',[UserController::class,'user_profile'])->name('user.profile');
+Route::get('user_edit_profile',[UserController::class,'edit'])->name('user.edit_profile');
+Route::put('user_update',[UserController::class,'update_profile'])->name('user.update_profile');
