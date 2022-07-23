@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('store.index')}}">
                 <i class="fas fa-book-reader"></i>
                 <span class="links_name">Store List</span>
             </a>

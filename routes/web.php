@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+// admin
 Route::get('dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+
+// store
+Route::get('store/{id}/delete',[StoreController::class,'destroy']);
+
+Route::resource('store',StoreController::class);
