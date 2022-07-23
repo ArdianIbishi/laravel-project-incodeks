@@ -35,7 +35,7 @@
         @enderror
 
         @if($store->logo)
-            <div>ok</div>
+            <div><img src="/{{$store->logo}}" width="100 px"></div>
         @endif
 
         <div class="form-group">

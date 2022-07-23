@@ -42,6 +42,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'store_logo' => [
+            'driver' => 'local',
+            'root' => storage_path('app/store_logo'),
+            'url' => env('APP_URL').'/store_logo',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -68,6 +75,8 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('store_logo') => storage_path('app/store_logo'),
+
     ],
 
 ];

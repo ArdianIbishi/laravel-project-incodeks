@@ -43,9 +43,17 @@ class StoreController extends Controller
     public function store(SaveStoreRequest $request)
     {
         $store = new Store();
+        $path = "";
+        if ($request->file('logo') != null) {
+            $path = $request->file('logo')->store('store_logo');
+        }
+
+
         $store->store_name = $request->input('store_name');
         $store->email = $request->input('email');
-        $store->logo = "";
+        if ($path != null) {
+            $store->logo = $path;
+        }
         $store->website = $request->input('website');
 
         if ($store->save()) {
@@ -90,9 +98,18 @@ class StoreController extends Controller
     public function update(UpdateStoreRequest $request, $id)
     {
         $store = Store::find($id);
+        $path = "";
+        if ($request->file('logo') != null) {
+            @unlink(storage_path('app/') . $store->logo);
+
+            $path = $request->file('logo')->store('store_logo');
+        }
         $store->store_name = $request->input('store_name');
         $store->email = $request->input('email');
-        $store->logo = "";
+
+        if ($path != null) {
+            $store->logo = $path;
+        }
         $store->website = $request->input('website');
 
         if ($store->save()) {
@@ -111,9 +128,12 @@ class StoreController extends Controller
     public function destroy($id)
     {
 
-        $store = Store::find($id)->delete();
+        $store = Store::find($id)->first();
+
 
         if ($store) {
+            @unlink(storage_path('app/') . $store->logo);
+            $store->delete();
             return redirect(route('store.index'))->with('status', "Store is deleted successfully");
         } else {
             return redirect(route('store.create'))->with('nostatus', "Store is not deleted successfully");
