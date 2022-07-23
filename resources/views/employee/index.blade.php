@@ -30,9 +30,9 @@
                 <th scope="row">{{$employee->id}}</th>
                 <td>{{$employee->first_name}}</td>
                 <td>{{$employee->last_name}}</td>
-                <td>{{$employee->store_id}}</td>
+                <td>{{$employee->store->store_name}}</td>
                 <td>{{$employee->email}}</td>
-                <td>{{$employee->website}}</td>
+                <td>{{$employee->phone_number}}</td>
                 <td>{{$employee->created_at}}</td>
                 <td class="text-center">
                         <a href="{{route('employee.edit',[$employee])}}">

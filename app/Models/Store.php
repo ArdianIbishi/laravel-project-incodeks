@@ -14,4 +14,9 @@ class Store extends Model
         'logo',
         'website',
     ];
+
+    public function employees(){
+
+        return $this->hasMany('\App\Models\Employe');
+    }
 }
