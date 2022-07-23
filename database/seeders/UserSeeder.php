@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +18,8 @@ class UserSeeder extends Seeder
         $user = new User();
         $user->name = "Admin";
         $user->email = " admin@incodeks.com";
-        $user->password = "Interview2022";
+        $user->password = Hash::make("Interview2022");
+        $user->role="admin";
         $user->save();
     }
 }

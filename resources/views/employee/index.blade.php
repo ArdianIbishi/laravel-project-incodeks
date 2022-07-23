@@ -47,5 +47,7 @@
         @endforeach
         </tbody>
     </table>
-
+<div>
+{{$employees->links()}}
+</div>
 @endsection
